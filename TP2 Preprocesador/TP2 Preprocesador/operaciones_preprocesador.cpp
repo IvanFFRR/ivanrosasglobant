@@ -3,14 +3,14 @@
 #include <iostream>
 #include <sstream>
 
-#define CONC(a, b) (a ## b)
+#define CONC(a, b) (#a ## #b)
+#define PRINT(a) std::cout << a << std::endl;
 
 std::string concat(int a, int b)
 {
-	char ab[40] = "Eureka!";
-	return CONC(a, b);
+	return CONC(a, b) ;
 }
 
 void print(std::string a) {
-	std::cout << a << std::endl;;
+	PRINT(a);
 }

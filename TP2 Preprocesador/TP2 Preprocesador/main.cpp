@@ -127,6 +127,22 @@ int main()
 			cout << "Las variables ingresadas son " << *a << " y " << *b << endl;
 			swap(a, b);
 			cout << "Las nuevas variables son " << *a << " y " << *b << endl;
+			break;
+		}
+		break;
+	case 4:
+		bitscreen();
+		cin >> input2;
+		switch (input2) {
+		case 3: 
+			cout << "Ingrese un numero" << endl;
+			cin >> a;
+			cout << "Desplazar dos bits de 4 a la izquierda da: " << shiftLeft(a) << endl;
+			break;
+		case 4: cout << "Ingrese un numero" << endl;
+			cin >> a;
+			cout << "Desplazar dos bits de 4 a la derecha da: " << shiftRight(a) << endl;
+			break;
 		}
 
 	}
