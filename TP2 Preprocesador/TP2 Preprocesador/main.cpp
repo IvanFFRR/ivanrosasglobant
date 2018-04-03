@@ -15,6 +15,7 @@
 
 
 using namespace std;
+
 void mainscreen() {
 	cout << "\t1) Operaciones matematicas." << endl;
 	cout << "\t2) Operaciones de preprocesador." << endl;
@@ -42,16 +43,19 @@ void bitscreen() {
 	cout << "\t3) Desplazamiento de bits hacia la izquierda. " << endl;
 	cout << "\t4) Desplazamiento de bits hacia la derecha. " << endl;
 }
+
+void stringscreen() {
+	cout << "\t1) Comparación de cadenas de caracteres. " << endl;
+}
 //shows binary operations screen
 void logicscreen() {
 	cout << "\t1) Intercambio de variables. " << endl;
 }
-//shows logic operations
+
 void clear() {
 	system("cls");
 	cout << "Presione un numero (y enter) para seleccionar un tipo de operacion\n" << endl;
 }
-
 int main()
 {
 	clear();
@@ -74,7 +78,7 @@ int main()
 		mathscreen();
 		cin >> input2;
 		switch (input2) {
-		
+
 		case 1:
 			cout << "Elija dos numeros enteros para ser sumados\n";
 			cin >> a >> b;
@@ -87,10 +91,10 @@ int main()
 			cout << "El cuadrado de " << sqr << " es " << square(sqr) << endl;
 			break;
 		case 3:
-			int r;
+			unsigned int r;
 			cout << "Elija el radio del circulo." << endl;
 			cin >> r;
-			cout << "El area de un circulo con radio " << r << " es " << area(r) << endl;
+			printf("El area del circulo es %.2f\n ", area(r));
 			break;
 		case 4:
 			cout << "Elija dos numeros para calcular cual es mayor." << endl;
@@ -102,7 +106,7 @@ int main()
 			break;
 		}
 		break;
-	case 2: 
+	case 2:
 		preprocscreen();
 		cin >> input2;
 		switch (input2) {
@@ -119,9 +123,9 @@ int main()
 		logicscreen();
 		cin >> input2;
 		switch (input2) {
-		case 1: 
-			int x, y;
-			int *a = &x, *b = &y; //pointers
+		case 1:
+			static int x, y;
+			int *a = &x, *b = &y;
 			cout << "Ingrese los dos numeros enteros a ser intercambiados." << endl;;
 			cin >> x >> y;
 			cout << "Las variables ingresadas son " << *a << " y " << *b << endl;
@@ -134,7 +138,7 @@ int main()
 		bitscreen();
 		cin >> input2;
 		switch (input2) {
-		case 3: 
+		case 3:
 			cout << "Ingrese un numero" << endl;
 			cin >> a;
 			cout << "Desplazar dos bits de 4 a la izquierda da: " << shiftLeft(a) << endl;
@@ -143,6 +147,23 @@ int main()
 			cin >> a;
 			cout << "Desplazar dos bits de 4 a la derecha da: " << shiftRight(a) << endl;
 			break;
+		}
+		break;
+	case 5:
+		static char a[40], b[40];
+		stringscreen();
+		cin >> input2;
+		switch (input2) {
+		case 1:
+			cout << "Ingrese una frase o palabra." << endl;
+			cin >> a[40];
+			cout << "Ingrese otra frase o palabra." << endl;
+			cin >> b[40];
+			if (compareString(a, b))
+				cout << "Las cadenas son iguales. ";
+			else
+				cout << "Las cadenas son diferentes. ";
+			
 		}
 
 	}
