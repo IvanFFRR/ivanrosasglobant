@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  DoublyLinkedList.cpp
+  Node.cpp
+  swapf.cpp
+  TP4Pointers.cpp
+  Generating code
+d:\stuff\facultad\globant\tp4 pointers\tp4 pointers\doublylinkedlist.cpp(85): warning C4715: 'DoublyLinkedList::isPrime': not all control paths return a value
+  All 24 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  TP4 Pointers.vcxproj -> D:\Stuff\FACULTAD\Globant\TP4 Pointers\x64\Release\TP4 Pointers.exe

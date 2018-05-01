@@ -5,12 +5,13 @@
 class DoublyLinkedList
 {
 private:
-	Node *head, *tail;
+	Node *head;
 
 public:
 	DoublyLinkedList();
 	~DoublyLinkedList();
-	void addElement(int i);
+	int length();
+	void addElement(int i, int pos);
 	bool isPrime(int n);
 	void print();
 

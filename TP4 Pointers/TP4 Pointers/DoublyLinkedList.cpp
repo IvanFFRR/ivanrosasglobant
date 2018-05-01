@@ -1,33 +1,78 @@
 #include "stdafx.h"
 #include "DoublyLinkedList.h"
 
-
+//exercises 1 and 2 at the bottom
 DoublyLinkedList::DoublyLinkedList()
 {
 	head = nullptr;
-	tail = nullptr;
 }
 
 
 DoublyLinkedList::~DoublyLinkedList()
 {
-
+	Node *p = head;
+	while (head != nullptr) {
+		head = head->next;
+		delete p;
+	}
 }
 
-void DoublyLinkedList::addElement(int i)
+int DoublyLinkedList::length()
 {
-	Node *add;
-	add = new Node();
-	add->value = i;
-	add->next = head;
-	head = add;
+	Node *sweep = head;
+	int length = 0;
+	while (sweep != nullptr)
+	{
+		length++;
+		sweep = sweep->next;
+	}
+	return length;
+}
+
+void DoublyLinkedList::addElement(int i, int pos)
+{
+	if (pos <= length() + 1)
+	{
+		Node *node = new Node();
+		node->value = i;
+		if (pos == 1)
+		{
+			node->next = head;
+			if (head != nullptr)
+				head->prev = node;
+			head = node;
+		}
+		else
+			if (pos == length() + 1)
+			{
+				Node *sweep = head;
+				while (sweep->next!= nullptr)
+				{
+					sweep = sweep->next;
+				}
+				sweep->next = node;
+				node->prev = sweep;
+				node->next = nullptr;
+			}
+			else
+			{
+				Node *sweep = head;
+				for (int f = 1; f <= pos - 2; f++)
+					sweep = sweep->next;
+				Node *follow = sweep->next;
+				sweep->next = node;
+				node->prev = sweep;
+				node->next = follow;
+				follow->prev= node;
+			}
+	}
 }
 
 
 bool DoublyLinkedList::isPrime(int n) 
 {
-	bool isPrime = true;
-	for (int i = 2; i <= n / 2; ++i) 
+	int div = n / 2;
+	for (int i = 2; i <= div; ++i) 
 	{
 		if (n % i == 0) 
 		{
@@ -39,11 +84,14 @@ bool DoublyLinkedList::isPrime(int n)
 void DoublyLinkedList::print()
 {
 	Node *sweep = head;
-	while (sweep != nullptr) 
+	do
 	{
 		std::cout << sweep->value;;
 		sweep = sweep->next;
 		std::cout << ", ";
-	}
-}
-;
+	} while (sweep != nullptr);
+
+};
+
+
+

@@ -3,12 +3,8 @@
 
 Node::Node()
 {
-	value = 0;
-	next = nullptr;
-	prev = nullptr;
 }
 
 Node::~Node()
 {
-
 }
