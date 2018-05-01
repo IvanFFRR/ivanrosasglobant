@@ -1,0 +1,4 @@
+﻿  TP5Functions.cpp
+d:\stuff\facultad\globant\tp5 functions\tp5 functions\tp5functions.cpp(15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  TP5 Functions.vcxproj -> D:\Stuff\FACULTAD\Globant\TP5 Functions\x64\Debug\TP5 Functions.exe
+  TP5 Functions.vcxproj -> D:\Stuff\FACULTAD\Globant\TP5 Functions\x64\Debug\TP5 Functions.pdb (Partial PDB)

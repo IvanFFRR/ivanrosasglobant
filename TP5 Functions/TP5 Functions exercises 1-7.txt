@@ -1,0 +1,161 @@
+	(1) Given:
+
+		#include <iostream>
+		using std::cout;
+
+		void f(signed char c) { cout << “Signed char\n”; }
+		void f(unsigned char c) {cout << “Unsigned char\n”; }
+
+		int main() 
+		{
+			char c1 =
+			‘a’;
+
+			f(c1);
+		}
+
+	a) The output is: “Signed char\n”.
+	b) The output is: “Unsigned char\n”.
+	c) The output is implementation dependant.
+	d) There is a compilation error. Why?
+	e) There is a link error. Why?
+
+	D: There is a compilation error because the compiler can tell which function f(c) to call
+	because the signature of the function f is the same, and also because the variable c1 matches both
+	unsigned char and signed char parameters, therefore, there exists ambiguity
+
+
+
+
+	(2) Given file A.cpp:
+
+		#include <iostream>
+		void f(int) { std::cout << “f(int)”; }
+
+	And file B.cpp:
+		#include <iostream>
+		void f(double) { std::cout << “f(double)”; }
+
+		int main() 
+		{
+			f(3);
+		}
+
+	a) The output is “f(int)”.
+	b) The output is “f(double)”.
+	c) There is a compilation error. Why?
+	d) There is a link error. Why?
+
+	B: The output is "f(double)
+
+
+
+	3) Given the file header.h:
+	#include <iostream>
+	void f(int d);
+
+	And the file A.cpp:
+	#include “header.h”
+	void f(int d = 10) {std::cout << d << “\t”; }
+
+	And the file B.cpp:
+	#include “header.h”
+	int main() {
+	f();
+	f(5);
+	}
+
+	a) The output is “10 5”.
+	b) The output is “??? 5”, where ??? is undefined.
+	c) There is a compilation error. Why?
+	d) There is a link error. Why?
+	
+	C: There is a compilation error because there's no function f() that takes no arguments.
+	
+	
+	
+	4) Given:
+	#include <iostream>
+	using std::cout;
+
+	void f(float) { cout << “f(float)”; }
+	void f(long double) {cout << “f(long double)”; }
+
+	int main() {
+	f(2.0);
+	}
+
+	a) The output is “f(float)”.
+	b) The output is “f(long double)”.
+	c) There is an ambiguity when calling f(2.0). Due to
+	floating point promotions.
+	d) There is a link error.
+	
+	C: There is an ambiguity.
+	
+	
+
+	5) Given:
+	#include <iostream>
+	using std::cout;
+	using std::endl;
+
+	void f(int&) { cout << “A”; }
+	void f(const int&) {cout << “B”; }
+
+	int main() {
+	int i = 10;
+	const int ci = 11;
+
+	f(i);
+	f(ci);
+	}
+
+	a) The output is “AA”.
+	b) The output is “AB”.
+	c) The output is “BA”.
+	d) The output is “BB”.
+	e) There is a compilation error. Why?
+	f) There is a link error. Why?
+	
+	B: The output is "AB".
+	
+	
+
+	6) Given:
+	int f() { return 1; }
+	double f() { return 2.5; }
+
+	int main() {
+	int ret = f();
+	return ret ;
+	}
+
+	a) The returned value is 1.
+	b) The returned value is 2.
+	c) The returned value is 3.
+	d) There is a compilation error. Why?
+	e) There is a link error. Why?
+	
+	D: There is a compilation error because functions cannot be overloaded when they differ by return type alone.
+	
+
+	7) Given:
+	#include <iostream>
+
+	void f(int) { std::cout << "int"; }
+	void f(double) { std::cout << "double"; }
+
+	int main() {
+	char a =
+	'a';
+
+	f(a);
+	}
+
+	a) The output is "int".
+	b) The output is "double".
+	c) There is a compilation error. Why?
+	d) There is a link error. Why?
+	
+	A: The output is "int".
