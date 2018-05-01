@@ -1,8 +1,10 @@
 # ivanrosasglobant
 
->TP1 : Sum Macro <br />
->TP2 : Preprocessor <br />
->TP3 : Datatypes (+ arrays) <br />
->TP4 : Doubly Linked List <br />
->TP5 : Functions <font color="red">(Check the text file inside the folder to see the exercises 1 through 7!)</font>
+1. : Sum Macro <br />
+2. : Preprocessor <br />
+3. : Datatypes (+ arrays) <br />
+4. : Doubly Linked List <br />
+5. : Functions **(Check the text file inside the folder to see the exercises 1 through 7!)** <br />
+6. : Classes <br />
+7. : Templates <br />
 	
